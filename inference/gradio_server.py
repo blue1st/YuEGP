@@ -654,18 +654,8 @@ def create_demo():
 
 if __name__ == "__main__":
     os.environ["GRADIO_ANALYTICS_ENABLED"] = "False"
-    server_port = 0 # int(args.server_port)
-
-    if server_port == 0:
-        server_port = int(os.getenv("SERVER_PORT", "7860"))
-
-    # server_name = args.server_name
-    server_name = "localhost"
-    if len(server_name) == 0:
-        server_name = os.getenv("SERVER_NAME", "0.0.0.0")
-
         
     demo = create_demo()
 
-    demo.launch(server_name=server_name, server_port=server_port, allowed_paths=[args.output_dir])
+    demo.launch(allowed_paths=[args.output_dir])
  
