@@ -1,4 +1,9 @@
-docker run --gpus=all --rm -it -v ./prompt_examples:/YuEGP/inference/promp_examples -v ./output:/YuEGP/output yuegp:latest python infer.py \
+source .env
+docker run --gpus=all --rm -it \
+    -v ./prompt_examples:/YuEGP/inference/promp_examples \
+    -v ./output:/YuEGP/output \
+    yuegp:$CUDA_VERSION \
+    python infer.py \
     --stage1_model m-a-p/YuE-s1-7B-anneal-en-cot \
     --stage2_model m-a-p/YuE-s2-1B-general \
     --genre_txt prompt_examples/genre.txt \

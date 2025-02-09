@@ -1,4 +1,5 @@
-FROM nvidia/cuda:12.8.0-cudnn-devel-ubuntu22.04
+ARG CUDA_VERSION=12.8.0
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn-devel-ubuntu22.04
 
 RUN apt update && apt-get install -y &&\
   apt install -y python3.10 python3-pip &&\
