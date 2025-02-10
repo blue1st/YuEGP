@@ -73,7 +73,7 @@ if use_icl:
 else:
     args.stage1_model="m-a-p/YuE-s1-7B-anneal-en-cot"
 
-args.stage2_batch_size=12 if profile==1 else 4
+args.stage2_batch_size= [20,20,20,4,3,2][profile]   
 
 if sdpa:
     attn_implementation="sdpa"
